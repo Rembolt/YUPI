@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Spike Colliders
+  - Damageble
+  - Death
+  - Arrow Launcher
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Post Processing
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2521935153
+    locked: 0
+  - name: Spikes
+    uniqueID: 1033204403
+    locked: 0
+  - name: Platforms
+    uniqueID: 3062033689
+    locked: 0
+  - name: Player
+    uniqueID: 757777385
+    locked: 0
+  - name: Objects
+    uniqueID: 2310633893
+    locked: 0
+  - name: FX
+    uniqueID: 1961401657
+    locked: 0
+  - name: Slider
+    uniqueID: 4237284353
+    locked: 0
+  - name: Canvas
+    uniqueID: 2195206457
+    locked: 0
