@@ -7,6 +7,6 @@ public class PlayerInScript : MonoBehaviour
     void OnTriggerEnter2D (Collider2D c)
     {
         Debug.Log("Hitted");
-        Player.i.PlayerDamage(c);
+        Player.i.PlayerColision(c);
     }
 }

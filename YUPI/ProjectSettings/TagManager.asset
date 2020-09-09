@@ -8,6 +8,11 @@ TagManager:
   - Damageble
   - Death
   - Arrow Launcher
+  - Boost
+  - Heart
+  - Money sac 1
+  - Money sac 2
+  - Money sac 3
   layers:
   - Default
   - TransparentFX

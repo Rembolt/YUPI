@@ -7,10 +7,15 @@ public class Arrow : MonoBehaviour
     public float speed;
     public GameObject destructionFX;
 
-    void OnTriggerEnter2D (Collider2D c)
+    void OnCollisionEnter2D(Collision2D c)
     {
         if(c.gameObject.tag == "Player")
+        {
             Destruction();
+            Player.i.Damageble();
+        }
+           
+
         if(c.gameObject.tag == "Arrow Launcher")
             Destruction();
     }

@@ -27,7 +27,10 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private Vector3 pos;
     private float fixedDeltaTime;
     private bool stoped = false;
-    public float currentLife;
+    private float currentLife;
+    private bool boosting;
+
+    private bool money1 = false, money2 = false, money3 = false;
 
     public static Player i;
     void Awake() { i = this; }
@@ -40,23 +43,45 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         currentLife = life;
     }
 
-    public void PlayerDamage(Collider2D c)
+    public void PlayerColision(Collider2D c)
     {
         if (c.gameObject.tag == "Spike Colliders")
-            StartCoroutine(Dying());
-           
+            Dying();
         if (c.gameObject.tag == "Damageble")
-        {
-            currentLife--;
-            if(currentLife <= 0)
-                StartCoroutine(Dying());
-            else
-                StartCoroutine(Damaged());
-        }
-            
-
+            Damageble();              
         if (c.gameObject.tag == "Death")
-            Dead();    
+            Dead();  
+        if (c.gameObject.tag == "Boost")
+            StartCoroutine(Boosted());
+        if (c.gameObject.tag == "Heart")
+        {
+            currentLife++;
+            Destroy(c.gameObject);
+        }        
+        if (c.gameObject.tag == "Money sac 1")
+        {
+            money1 = true;
+            Destroy(c.gameObject);
+        }
+        if (c.gameObject.tag == "Money sac 2")
+        {
+            money2 = true;
+            Destroy(c.gameObject);
+        }
+        if (c.gameObject.tag == "Money sac 3")
+        {
+            money3 = true;
+            Destroy(c.gameObject);
+        }
+    }
+
+    public void Damageble()
+    {
+        currentLife--;
+        if (currentLife <= 0)
+            Dying();
+        else
+            StartCoroutine(Damaged());
     }
 
     
@@ -108,7 +133,10 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 availableHearts[i].sprite = emptyHeart;
         }
 
-
+        if (boosting == true)
+        {
+            playerTransform.position += new Vector3(0, playerSpeedUp * Time.deltaTime * 4, 0);
+        }
 
     }
 
@@ -140,7 +168,7 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         playerAnim.SetTrigger("Damaged");
         moving = false;
         isFalling = true;
-        playerTransform.position += new Vector3(pos.x - playerTransform.position.x * 0.3f, -0.5f, 0);
+        playerTransform.position += new Vector3(0, -0.2f, 0);
         sliderXPosition.interactable = false;  
         yield return new WaitForSeconds(1);
         sliderXPosition.interactable = true;
@@ -151,7 +179,7 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         Debug.Log("Recovered");
     }
 
-    IEnumerator Dying()
+    void Dying()
     {
         currentLife = 0;
         playerAnim.SetTrigger("Falling");
@@ -161,7 +189,13 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         sliderXPosition.interactable = false;
         dead = true;
         Debug.Log("Dying");
-        yield return "Dying";
+    }
+
+    IEnumerator Boosted() 
+    {
+        boosting = true;
+        yield return new WaitForSeconds(0.4f);
+        boosting = false;
     }
 
     void Dead()

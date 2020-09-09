@@ -57,9 +57,12 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Arrow.cs" />
      <Compile Include="Assets\Script\ArrowLauncher.cs" />
+     <Compile Include="Assets\Script\GameData.cs" />
+     <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\MovablePlataform.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\PlayerInScript.cs" />
+     <Compile Include="Assets\Script\SaveSystem.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
