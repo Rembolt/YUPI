@@ -13,6 +13,7 @@ TagManager:
   - Money sac 1
   - Money sac 2
   - Money sac 3
+  - EndGame
   layers:
   - Default
   - TransparentFX
@@ -73,4 +74,7 @@ TagManager:
     locked: 0
   - name: Canvas
     uniqueID: 2195206457
+    locked: 0
+  - name: Panel
+    uniqueID: 204703353
     locked: 0
